@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+
+namespace lab4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> names = new List<string>();
+            List<int> grade = new List<int>();
+
+
+            while (true)
+            {
+                Console.WriteLine("Student Name: ");
+                names.Add(Console.ReadLine());
+                Console.WriteLine("Student Grade: ");
+                grade.Add(Convert.ToInt32(Console.ReadLine()));
+                Console.WriteLine("Add Another student? (Yes/No)");
+                var newStudent = Console.ReadLine();
+                newStudent.ToLower();
+
+                if (newStudent == "no")
+                {
+                    break;
+                }
+            }
+                for (int i = 0; i < names.Count; i++)
+                {
+                    Console.WriteLine("Student Name: " + names[i] + " Student Grade: " + grade[i]);
+                }
+                Console.WriteLine("Enter the grade to search:");
+                int search = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Number of Student with Grade " + search + " is: " +printInfo(grade, search));
+            
+        }
+        static int printInfo(List<int> grade, int search)
+        {
+            int count = 0;
+            foreach (var item in grade)
+            {
+                if (item == search)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        
+    }
+}
